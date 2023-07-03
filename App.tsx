@@ -5,7 +5,8 @@
  * @format
  */
 
-import React from 'react';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
@@ -55,7 +56,7 @@ function Section({children, title}: SectionProps): JSX.Element {
   );
 }
 
-function App(): JSX.Element {
+export default function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -63,6 +64,7 @@ function App(): JSX.Element {
   };
 
   return (
+    <NavigationContainer>{
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
@@ -93,6 +95,7 @@ function App(): JSX.Element {
         </View>
       </ScrollView>
     </SafeAreaView>
+    }</NavigationContainer>
   );
 }
 
@@ -115,4 +118,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+
+//export default App;
